@@ -1,11 +1,25 @@
 package org.example.models;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MonitorMesas {
     private final int TOTAL_MESAS = 6;
     private final List<Boolean> mesas;
+
+    private final double[][] POSICIONES_MESAS = {
+            // Mesa izquierda primera linea
+            {300, 50},
+            // Mesa derecha segunda linea
+            {400, 50},
+            // Mesa izquierda segunda linea
+            {300, 180},
+            // Mesa derecha segunda linea
+            {400, 180},
+            // Penultima mesa abajo
+            {300, 300},
+            // Ultima mesa abajo
+            {300, 400}
+    };
 
     public MonitorMesas() {
         mesas = new ArrayList<>(TOTAL_MESAS);
@@ -38,5 +52,9 @@ public class MonitorMesas {
         mesas.set(numeroMesa - 1, false); // liberar la mesa
         System.out.println("mesa "+numeroMesa+ " liberada.");
         notifyAll();
+    }
+
+    public double[] getPosicionMesa(int i) {
+        return this.POSICIONES_MESAS[i];
     }
 }
