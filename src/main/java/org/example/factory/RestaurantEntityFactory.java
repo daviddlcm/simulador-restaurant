@@ -9,7 +9,7 @@ public class RestaurantEntityFactory {
     public void crearFondo(){
         entityBuilder()
                 .at(0, 0)
-                .viewWithBBox("fondo.jpg")
+                .view("fondo.jpg")
                 .zIndex(-1)
                 .buildAndAttach();
     }
