@@ -49,6 +49,7 @@ public class MeseroThread implements Runnable {
                         this.meseroVista.moverMesero(comensalAtendido.getMesaId()-1);
                         Orden nuevaOrden = new Orden(comensalAtendido.getMesaId(), comensalAtendido.getId());
                         monitorOrdenes.ponerOrden(nuevaOrden);
+                        nuevaOrden.setEstado("EN PROCESO");
                         comensalAtendido.setEstado("Esperando comida");
 
                         System.out.println("Mesero: Tomando orden del comensal " + comensalAtendido.getId());
@@ -57,6 +58,7 @@ public class MeseroThread implements Runnable {
 
                 // Entregar comida lista
                 Orden comidaLista = monitorComidas.tomarComida();
+                comidaLista.setEstado("TERMINADO");
                 if (comidaLista != null) {
                     synchronized (comensales) {
                         Comensal comensal = comensales.stream()
