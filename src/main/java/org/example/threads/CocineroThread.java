@@ -4,16 +4,19 @@ import org.example.models.Comensal;
 import org.example.models.MonitorOrdenes;
 import org.example.models.MonitorComidas;
 import org.example.models.Orden;
+import org.example.vistas.MeseroVista;
 
 import java.util.List;
 
 public class CocineroThread implements Runnable {
     private MonitorOrdenes monitorOrdenes;
     private MonitorComidas monitorComidas;
+    private MeseroVista meseroVista;
 
-    public CocineroThread(MonitorOrdenes monitorOrdenes, MonitorComidas monitorComidas, List<Comensal> comensales) {
+    public CocineroThread(MonitorOrdenes monitorOrdenes, MonitorComidas monitorComidas, List<Comensal> comensales, MeseroVista mesero) {
         this.monitorOrdenes = monitorOrdenes;
         this.monitorComidas = monitorComidas;
+        this.meseroVista = mesero;
     }
 
     @Override
