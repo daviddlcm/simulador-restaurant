@@ -1,4 +1,4 @@
-package org.example.Threads;
+package org.example.threads;
 
 import org.example.models.Comensal;
 import org.example.models.MonitorOrdenes;
